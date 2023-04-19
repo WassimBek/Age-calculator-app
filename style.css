@@ -34,8 +34,8 @@ body {
     
 }
 .Container {
-    width: 45%;
-    height: auto;
+    width: 600px;
+    height: 460px;
     padding: 25px;
     background-color: var(--White-Color);
     position: relative;
@@ -116,7 +116,7 @@ h2 > span {
     padding: 12px 12px;
     transform: scale(0.8);
 }
-@media (max-width : 417px) {
+@media (max-width : 605px) {
     .Container {
         width: auto;
         height: auto;
@@ -137,5 +137,11 @@ h2 > span {
     #imges {
         margin: 0 50%;
         transform: translate(85%,30%); 
+    }
+    .Container > form > div > p {
+        font-size: 0.4rem;
+    }
+    input {
+        width: auto;
     }
 }
