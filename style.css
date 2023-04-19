@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,700;1,400;1,800&display=swap');
+:root {
+    --Purple-Color :  hsl(259, 100%, 65%) ;
+    --Light-Red-Color : hsl(0, 100%, 67%) ;
+    --White-Color : hsl(0, 0%, 100%) ;
+    --White-Off-Color : hsl(0, 0%, 94%) ;
+    --Light-Grey-Color : hsl(0, 0%, 86%) ;
+    --Smoke-Grey-Color : hsl(0, 1%, 44%) ;
+    --Black-Off-Color : hsl(0, 0%, 8%) ;
+    --Body-Font-Inputs : 32px ;
+    --Familly-Font :  'Poppins', sans-serif;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  --moz-appearance: textfield;
+}
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box ;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: var(--Familly-Font);
+    background-color: var(--Light-Grey-Color);
+    
+}
+.Container {
+    max-width: 45%;
+    height: auto;
+    padding: 25px;
+    background-color: var(--White-Color);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 15px ;
+    border-bottom-right-radius:90px ;
+}
+.Container > form {
+    display: flex;   
+    margin-bottom: 7%;
+}
+.Container > form > div {
+    width: 22%;
+}
+.Container > form > div > .D {
+    font-size: 13px;
+    font-family: var(--Familly-Font);
+    font-weight: 700;
+    margin-bottom: 5%;
+    color: var(--Smoke-Grey-Color);
+    position:  relative !important;
+    visibility: visible !important;
+}
+.Container > form > div > input {
+    width: 90%;
+    height: 67%;
+    margin-bottom: 3%;
+    font-size: var(--Body-Font-Inputs);
+    font-weight: 900;
+    font-family: var(--Familly-Font);
+    border-radius: 4px;
+    padding-left: 10px;
+    border: 1px solid var(--Light-Grey-Color);
+    outline: none;
+    
+}
+input::placeholder {
+    font-size: 20px;
+    position: absolute;
+    top: 18%;
+} 
+.Container > form > div > p {
+    font-size: 0.6rem;
+    font-family: var(--Familly-Font);
+    font-weight:600;
+    color: var(--Light-Red-Color);
+    position: absolute;
+    visibility: hidden;
+}
+hr {
+    width: 90%;
+    background-color: var(--White-Off-Color) ;
+    margin-bottom: 8%;
+}
+h2 {
+    font-size: 5rem;
+    line-height: 1;
+    font-family: var(--Familly-Font);
+    color: var(--Black-Off-Color);
+}
+h2 > span {
+    color: var(--Purple-Color);
+}
+#imges {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    right: 8%;
+    top: 26%;
+    background-color: var(--Purple-Color);
+    cursor: pointer;
+}
+#imges > img {
+    margin: 0 auto;
+    padding: 12px 12px;
+    transform: scale(0.8);
+}

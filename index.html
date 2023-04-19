@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>Frontend Mentor | Age calculator app</title>
+</head>
+<body>
+  <section class="Container">
+    <form>
+      <div >
+        <p class="D">DAY</p>
+        <input type="number" id="DD" placeholder="DD" required>
+        <p id="Must_1">Must be a valid date</p>
+        <p id="Required_1">This field is required</p>
+      </div>
+      <div >
+        <p class="D">MONTH</p>
+        <input type="number"  id="MM" placeholder="MM" required>
+        <p id="Must_2">Must be a valid month</p>
+        <p id="Required_2">This field is required</p>
+      </div>
+      <div>
+        <p class="D">YEAR</p>
+        <input type="number" id="YY" placeholder="YYYY" required>
+        <p id="Must_3">Must be right one</p>
+        <p id="Required_3">This field is required</p>
+      </div>
+    </form>
+    <hr/>
+    <div id="imges">
+      <img src="assets/images/icon-arrow.svg">
+    </div>
+    <h2><span id="Yr">--</span> years</h2>
+    <h2><span id="Mh">--</span> months</h2>
+    <h2><span id="Dy">--</span> days</h2>
+  </section>
+  <script src="./app.js"></script>
+</body>
+</html>
