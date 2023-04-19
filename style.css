@@ -34,7 +34,7 @@ body {
     
 }
 .Container {
-    max-width: 45%;
+    width: 45%;
     height: auto;
     padding: 25px;
     background-color: var(--White-Color);
@@ -115,4 +115,27 @@ h2 > span {
     margin: 0 auto;
     padding: 12px 12px;
     transform: scale(0.8);
+}
+@media (max-width : 417px) {
+    .Container {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    h2 {
+        font-size: 59px;
+        font-weight: 900;  
+    }
+    hr {
+        margin-top: 10%;
+        margin-bottom: 10%;
+        margin-left: auto;
+        margin-right:auto ;
+    }
+    #imges {
+        margin: 0 50%;
+        transform: translate(85%,30%); 
+    }
 }

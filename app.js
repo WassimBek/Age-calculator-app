@@ -14,24 +14,12 @@ const Y_Required = document.getElementById('Required_3') ;
 Clk.addEventListener('click',()=>{
         Programme() ;
 }) ;
-const Checking_empty =()=>{
-    let value1 = D_input.value;
-    let value2 = M_input.value ;
-    let value3 = Y_input.value ;
-    
+//inputs is one of three inputs and required is one of three text of required
+const Checking_empty =(inputs , requireds)=>{
+    let value1 = inputs.value;
     if (value1.length === 0) {
-        D_Required.setAttribute('style' , 'visibility : visible ');
-        D_input.style.borderColor = "red" ;
-        return false ;
-    }
-    if (value2.length === 0) {
-        M_Required.setAttribute('style' , 'visibility : visible ');
-        M_input.style.borderColor = "red" ;
-        return false ;
-    }
-    if (value3.length === 0) {
-        Y_Required.setAttribute('style' , 'visibility : visible');
-        Y_input.style.borderColor = "red" ;
+        requireds.setAttribute('style' , 'visibility : visible ');
+        inputs.style.borderColor = "red" ;
         return false ;
     }
     return true ;
@@ -50,7 +38,7 @@ const Programme = () => {
     else 
         Yr_Dest.textContent= (Date_Now.getFullYear()-1) - Number(y_in) ;
     Dy_Dest.textContent = (Math.max(Number(D_in),Date_Now.getDay())-Math.min(Number(D_in),Date_Now.getDay()));
-    Mh_Dest.textContent = 12 - (Math.max(Number(M_in),(Date_Now.getMonth()))-Math.min(Number(M_in),(Date_Now.getMonth())));
+    Mh_Dest.textContent =  (Math.max(Number(M_in),(Date_Now.getMonth()))-Math.min(Number(M_in),(Date_Now.getMonth())));
     D_input.style.borderColor = "green";
     M_input.style.borderColor = "green";
     Y_input.style.borderColor = "green";
@@ -58,7 +46,7 @@ const Programme = () => {
 }
 const Days = () => {
     let Day_input = D_input.value ;
-    let bool_checkD = Checking_empty() ;
+    let bool_checkD = Checking_empty(D_input,D_Required) ;
     if(bool_checkD == true){
         if(Number(Day_input) >= 1 && Number(Day_input) <= 31){
             return true ;
@@ -74,6 +62,8 @@ const Days = () => {
 const Month = () => {
     let Month_input = M_input.value ;
     let input_d = D_input.value ;
+    let bool_checkM  = Checking_empty(M_input,M_Required) ;
+ if(bool_checkM){
     if (Number(Month_input) >= 1 && Number(Month_input)<=12 ){
         if(Number(Month_input) % 2 === 0 && Number(input_d) <= 30) {
             if(Number(Month_input) === 2) {
@@ -96,16 +86,20 @@ const Month = () => {
         M_Must.style.visibility = "visible" ;
         M_input.style.borderColor = "red" ;
     }
+    }
     return false ;
 }
 const Year = () => {
     let Year_input = Y_input.value; 
     let DateNow = new Date() ;
+    let bool_checkY = Checking_empty(Y_input,Y_Required) ;
+if(bool_checkY){
     if(Number(Year_input) <= DateNow.getFullYear() && Number(Year_input) >= 1 )
     return true ;
     else {
         Y_Must.style.visibility = "visible" ;
         Y_input.style.borderColor = "red" ;
-        return false ;
     }
+    }
+    return false ;
 }
