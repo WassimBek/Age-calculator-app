@@ -14,10 +14,8 @@ const Y_Required = document.getElementById('Required_3') ;
 Clk.addEventListener('click',()=>{
         Programme() ;
 }) ;
-//inputs is one of three inputs and required is one of three text of required
 const Checking_empty =(inputs , requireds , Must)=>{
     let value1 = inputs.value;
-    
     if (value1.length === 0) {
         requireds.setAttribute('style' , 'visibility : visible ');
         inputs.style.borderColor = "red" ;
@@ -25,7 +23,7 @@ const Checking_empty =(inputs , requireds , Must)=>{
         return false ;
     }else {
         requireds.setAttribute('style' , 'visibility : hidden ');
-        inputs.style.borderColor = "none" ;
+        inputs.style.borderColor = "green" ;
         Must.style.visibility = "hidden" ;
     return true ;
     }
@@ -73,7 +71,7 @@ const Month = () => {
     let bool_checkM  = Checking_empty(M_input,M_Required,M_Must) ;
  if(bool_checkM){
     if (Number(Month_input) >= 1 && Number(Month_input)<=12 ){
-        if(Number(Month_input) % 2 === 0 && Number(input_d) <= 30) {
+        if(Number(Month_input) % 2 === 0 && Number(input_d) <= 30&&Number(input_d)>=1) {
             if(Number(Month_input) === 2) {
                 if(Number(input_d) <= 29) 
                 {
@@ -87,8 +85,11 @@ const Month = () => {
                 D_Must.style.visibility = "visible" ;
                 D_input.style.borderColor = "red" ;
                 }
-            }else 
+            }else {
+            M_Must.style.visibility = "hidden" ;
+            M_input.style.borderColor = "green" ;
             return true ;
+            }
         } else if(Number(Month_input) % 2 != 0 && Number(input_d)<=31) {
                   D_Must.style.visibility = "hidden" ;
                   D_input.style.borderColor = "none" ;
@@ -96,8 +97,10 @@ const Month = () => {
                   M_input.style.borderColor = "none" ;
             return true ;
         }else {
-            M_Must.style.visibility = "visible" ;
-            M_input.style.borderColor = "red" ;
+            if(Checking_empty(D_input,D_Required,D_Must)){
+            D_Must.style.visibility = "visible" ;
+            D_input.style.borderColor = "red" ;
+            }
         }
     } else 
     {
@@ -115,13 +118,13 @@ if(bool_checkY){
     if(Number(Year_input) <= DateNow.getFullYear() && Number(Year_input) >= 1 )
     {
         Y_Must.style.visibility = "hidden" ;
-        Y_input.style.borderColor = "none" ;
+        Y_input.style.borderColor = "green" ;
       return true ;  
     }
     else {
         Y_Must.style.visibility = "visible" ;
         Y_input.style.borderColor = "red" ;
-    }
+        }
     }
     return false ;
 }
