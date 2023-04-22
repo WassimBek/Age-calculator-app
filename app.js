@@ -1,19 +1,25 @@
 const D_input = document.getElementById('DD') ;
 const M_input = document.getElementById('MM') ;
 const Y_input = document.getElementById('YY') ;
+
 const Dy_Dest = document.getElementById('Dy') ;
 const Mh_Dest = document.getElementById('Mh') ;
 const Yr_Dest = document.getElementById('Yr') ;
+
 const Clk = document.getElementById('imges') ;
+
 const D_Must = document.getElementById('Must_1') ;  
 const M_Must = document.getElementById('Must_2') ; 
-const Y_Must = document.getElementById('Must_3') ; 
+const Y_Must = document.getElementById('Must_3') ;
+
 const D_Required = document.getElementById('Required_1') ; 
 const M_Required = document.getElementById('Required_2') ; 
-const Y_Required = document.getElementById('Required_3') ; 
+const Y_Required = document.getElementById('Required_3') ;
+
 Clk.addEventListener('click',()=>{
         Programme() ;
 }) ;
+
 const Checking_empty =(inputs , requireds , Must)=>{
     let value1 = inputs.value;
     if (value1.length === 0) {
@@ -28,6 +34,7 @@ const Checking_empty =(inputs , requireds , Must)=>{
     return true ;
     }
 }
+
 const Programme = () => {
  let Bool_D = Days() ;
  let Bool_M = Month() ;
@@ -48,6 +55,7 @@ const Programme = () => {
     Y_input.style.borderColor = "green";
  }
 }
+
 const Days = () => {
     let Day_input = D_input.value ;
     let bool_checkD = Checking_empty(D_input,D_Required,D_Must) ;
@@ -65,6 +73,7 @@ const Days = () => {
     else 
     return false ;
 }
+
 const Month = () => {
     let Month_input = M_input.value ;
     let input_d = D_input.value ;
@@ -91,8 +100,6 @@ const Month = () => {
             return true ;
             }
         } else if(Number(Month_input) % 2 != 0 && Number(input_d)<=31) {
-                  D_Must.style.visibility = "hidden" ;
-                  D_input.style.borderColor = "none" ;
                   M_Must.style.visibility = "hidden" ;
                   M_input.style.borderColor = "none" ;
             return true ;
@@ -110,6 +117,7 @@ const Month = () => {
     }
     return false ;
 }
+
 const Year = () => {
     let Year_input = Y_input.value; 
     let DateNow = new Date() ;
